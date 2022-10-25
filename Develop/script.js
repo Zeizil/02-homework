@@ -101,7 +101,15 @@ function generatePassword(pwlength, reqLetters, reqNums, reqSpec){
       pw += spec.charAt(symbol);
     }
   }
+  return pw;
 }
 
+// 
+
+// Checkboxes
+const reqLetters = document.querySelector('#Letters');
+const reqNums = document.querySelector('#Numbers');
+const reqSpec = document.querySelector('#Special Characters')
+
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", writePassword(reqLetters, reqNums, reqSpec));
