@@ -104,12 +104,28 @@ function generatePassword(pwlength, reqLetters, reqNums, reqSpec){
   return pw;
 }
 
-// 
+// Length
+const pwlength = document.querySelector('#pwlength');
 
 // Checkboxes
-const reqLetters = document.querySelector('#Letters');
-const reqNums = document.querySelector('#Numbers');
-const reqSpec = document.querySelector('#Special Characters')
+
+var reqLetters;
+var reqNums;
+var reqSpec;
+var nameOfField;
+
+function Checked(req, nameOfField){
+  if(nameOfField.checked){
+    req = true;
+  }
+}
+
+document.addEventListener("change", function (){
+  reqLetters = document.querySelector('#Letters').addEventListener('change', Checked(reqLetters, nameOfField = 'Letters'));
+  reqNums = document.querySelector('#Numbers').addEventListener('change', Checked(reqNums, nameOfField = 'Numbers'));
+  reqSpec = document.querySelector('#Special').addEventListener('change', Checked(reqSpec, nameOfField = 'Special'));
+});
+
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword(reqLetters, reqNums, reqSpec));
+generateBtn.addEventListener("click", writePassword(pwlength, reqLetters, reqNums, reqSpec));
