@@ -104,6 +104,15 @@ function generatePassword(pwlength, reqLetters, reqNums, reqSpec){
   return pw;
 }
 
+// Assign value to checkboxes
+function Checked(req, nameOfField){
+  if(nameOfField.checked){
+    req = true;
+  } else {
+    req = false;
+  }
+}
+
 // Length
 const pwlength = document.querySelector('#pwlength');
 
@@ -113,12 +122,6 @@ var reqLetters;
 var reqNums;
 var reqSpec;
 var nameOfField;
-
-function Checked(req, nameOfField){
-  if(nameOfField.checked){
-    req = true;
-  }
-}
 
 document.addEventListener("change", function (){
   reqLetters = document.querySelector('#Letters').addEventListener('change', Checked(reqLetters, nameOfField = 'Letters'));
